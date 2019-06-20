@@ -10,16 +10,25 @@ test('mapper', function (t) {
   var core = kappa(ram, { valueEncoding: 'json' })
   var lvl = memdb()
 
-  var view = View(lvl, {
-    map: function (msg) {
-      return [
-        [ msg.value.key, msg.value.value ]  // map first element to second element
-      ]
-    },
-    
-    api: {
-      get: function (core, key, cb) {
-        lvl.get(key, cb)
+  var view = View(lvl, function (db) {
+    return {
+      map: function (entries, next) {
+        var batch = entries.map(function (entry) {
+          return {
+            type: 'put',
+            key: entry.value.key,
+            value: entry.value.value
+          }
+        })
+        db.batch(batch, next)
+      },
+      
+      api: {
+        get: function (core, key, cb) {
+          core.ready(function () {
+            db.get(key, cb)
+          })
+        }
       }
     }
   })

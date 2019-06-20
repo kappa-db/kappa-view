@@ -16,7 +16,8 @@
   "keywords": [],
   "dependencies": {
     "pump": "^3.0.0",
-    "readable-stream": "^3.4.0"
+    "readable-stream": "^3.4.0",
+    "subleveldown": "^4.0.0"
   },
   "devDependencies": {
     "kappa-core": "^3.0.1",
