@@ -1,13 +1,13 @@
 {
-  "name": "kappa-view-level",
+  "name": "kappa-view",
   "description": "make views over kappa-core with leveldb",
   "author": "Stephen Whitmore <sww@eight.net>",
   "version": "2.0.1",
   "repository": {
-    "url": "git://github.com/noffle/kappa-view-level.git"
+    "url": "git://github.com/noffle/kappa-view.git"
   },
-  "homepage": "https://github.com/noffle/kappa-view-level",
-  "bugs": "https://github.com/noffle/kappa-view-level/issues",
+  "homepage": "https://github.com/noffle/kappa-view",
+  "bugs": "https://github.com/noffle/kappa-view/issues",
   "main": "index.js",
   "scripts": {
     "test": "tape test/*.js",
