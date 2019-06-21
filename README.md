@@ -2,6 +2,20 @@
 
 > Base for creating kappa-core views over LevelDB.
 
+## Materialized Views
+
+A materialized view does two things:
+
+1. A `map` function, that maps a list of log entries to modifications to a
+   view. In this case, a [LevelDB](https://github.com/level/level) database.
+2. An `api` object, which are functions and variables that the view exposes in
+   order to retrieve data from the LevelDB that `map` writes to.
+
+This module handles *view lifecycle* logic for you: normally a kappa view needs
+to manage storing and fetching the state of the indexer ("up to what log
+sequence numbers have I processed?"), as well as purging the view's LevelDB
+database when the version of the view gets bumped.
+
 ## Example
 
 This is a view for a very simple single-value key-value store, that maps log
