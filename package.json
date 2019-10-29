@@ -6,8 +6,8 @@
   "repository": {
     "url": "git://github.com/noffle/kappa-view.git"
   },
-  "homepage": "https://github.com/noffle/kappa-view",
-  "bugs": "https://github.com/noffle/kappa-view/issues",
+  "homepage": "https://github.com/kappa-db/kappa-view",
+  "bugs": "https://github.com/kappa-db/kappa-view/issues",
   "main": "index.js",
   "scripts": {
     "test": "tape test/*.js",
