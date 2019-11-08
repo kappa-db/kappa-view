@@ -4,9 +4,13 @@ var sub = require('subleveldown')
 
 module.exports = createIndex
 
-function createIndex (ldb, makeFn) {
+function createIndex (ldb, opts, makeFn) {
+  if (typeof opts === 'function' && !makeFn) {
+    makeFn = opts
+    opts = {}
+  }
   var stateDb = sub(ldb, 's')
-  var dataDb = sub(ldb, 'd')
+  var dataDb = sub(ldb, 'd', opts)
 
   var basic = {
     maxBatch: 100 || opts.maxBatch,
