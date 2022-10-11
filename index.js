@@ -13,7 +13,7 @@ function createIndex (ldb, opts, makeFn) {
   var dataDb = sub(ldb, 'd', opts)
 
   var basic = {
-    maxBatch: 100 || opts.maxBatch,
+    maxBatch: opts.maxBatch || 100,
 
     storeState: function (state, cb) {
       state = state.toString('base64')
