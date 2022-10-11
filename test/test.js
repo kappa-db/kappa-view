@@ -4,6 +4,17 @@ var ram = require('random-access-memory')
 var memdb = require('memdb')
 var test = require('tape')
 
+test('options', function (t) {
+  t.test('maxBatch default override', function (t) {
+    t.plan(1)
+    var lvl = memdb()
+
+    const maxBatchOption = 1337
+    var view = View(lvl, { maxBatch: maxBatchOption }, function (db) {})
+    t.same(view.maxBatch, maxBatchOption)
+  })
+})
+
 test('mapper', function (t) {
   t.plan(7)
 
